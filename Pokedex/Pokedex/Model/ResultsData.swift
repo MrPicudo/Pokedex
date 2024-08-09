@@ -5,7 +5,7 @@
 //  Created by Jose Miguel Torres Chavez Nava on 08/08/24.
 //
 
-import Foundation
+import SwiftUI
 
 struct ResultsData: Codable, Identifiable {
     var id = UUID()

@@ -5,11 +5,11 @@
 //  Created by Jose Miguel Torres Chavez Nava on 07/08/24.
 //
 
-import Foundation
-import Combine
+import SwiftUI
+import Combine // Necesario para el uso de variables observables, sin embargo, SwiftUI agrega muchas de los métodos de Combine automáticamente.
 
 /// Maneja las solicitudes de la API de Pokemon.
-class APIManager: ObservableObject {
+class APIListManager: ObservableObject {
     
     // Creamos un arreglo de todos los objetos que queremos obtener.
     @Published var results = [Results]()

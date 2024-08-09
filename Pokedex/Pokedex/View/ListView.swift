@@ -6,28 +6,35 @@
 //
 
 import SwiftUI
+import Combine // Necesario para el uso de variables observables, sin embargo, SwiftUI agrega muchas de los métodos de Combine automáticamente.
 
 struct ListView: View {
     
     // Creamos un objeto que transmitirá toda la información recibida de la API.
-    @ObservedObject var apiManager = APIManager()
+    @ObservedObject var apiListManager = APIListManager()
     
     var body: some View {
         NavigationStack {
-            List(apiManager.results) { pokemon in
-                Text(pokemon.name)
+            List(apiListManager.results) { pokemon in
+                HStack {
+                    Text(pokemon.name)
+                    NavigationLink {
+                        PokemonView(urlString: pokemon.url)
+                    } label: {
+                        Text("")
+                    }
+                }
             }
             VStack {
                 Button {
-                    print(apiManager.results)
+                    print(apiListManager.results)
                 } label: {
                     Text("Ver lista de Pokemons")
                 }
-
             }
         }
         .onAppear {
-            self.apiManager.fetchData()
+            self.apiListManager.fetchData()
         }
     }
 }
