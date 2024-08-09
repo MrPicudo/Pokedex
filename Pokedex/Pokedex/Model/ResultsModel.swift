@@ -1,5 +1,5 @@
 //
-//  ResultsData.swift
+//  ResultsModel.swift
 //  Pokedex
 //
 //  Created by Jose Miguel Torres Chavez Nava on 08/08/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ResultsData: Codable, Identifiable {
+struct ResultsModel: Codable, Identifiable {
     var id = UUID()
     let count: Int
     let next: String?

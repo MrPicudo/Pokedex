@@ -11,7 +11,7 @@ import Combine // Necesario para el uso de variables observables, sin embargo, S
 struct ListView: View {
     
     // Creamos un objeto que transmitirá toda la información recibida de la API.
-    @StateObject var apiListManager = APIListManager()
+    @StateObject var apiListManager = ListViewModel()
     // Variable para el cuadro de búsqueda
     @State private var searchText: String = ""
     

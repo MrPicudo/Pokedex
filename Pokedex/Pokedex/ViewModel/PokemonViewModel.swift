@@ -1,24 +1,20 @@
 //
-//  APIManager.swift
+//  PokemonViewModel.swift
 //  Pokedex
 //
-//  Created by Jose Miguel Torres Chavez Nava on 07/08/24.
+//  Created by Jose Miguel Torres Chavez Nava on 08/08/24.
 //
 
 import SwiftUI
 import Combine // Necesario para el uso de variables observables, sin embargo, SwiftUI agrega muchas de los métodos de Combine automáticamente.
 
-/// Maneja las solicitudes de la API de Pokemon.
-class APIListManager: ObservableObject {
+class PokemonViewModel: ObservableObject {
     
     // Creamos un arreglo de todos los objetos que queremos obtener.
-    @Published var results = [Results]()
-    
-    // Definimos la URL base con la que consultaremos la API
-    private let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+    @Published var pokemon = PokemonModel()
     
     /// Esta función toma el nombre del pokemon como parámetro y prepara la URL necesaria para hacer la llamada a la API
-    func fetchData() {
+    func fetchData(endpoint: String) {
         // Creamos de manera segura el URL para hacer la consulta de la API
         if let url = URL(string: endpoint) {
             // Creamos una URLSession para poder acceder a los métodos de comunicación entre nuestra aplicación y una API.
@@ -30,10 +26,10 @@ class APIListManager: ObservableObject {
                     // Nos interesa los datos que se obtienen de esta tarea.
                     if let safeData = data {
                         do {
-                            let results = try decoder.decode(ResultsData.self, from: safeData)
+                            let pokemon = try decoder.decode(PokemonModel.self, from: safeData)
                             // Usamos el DispatchQueue para que no se congele la interfaz en lo que se obtienen los datos de la API.
                             DispatchQueue.main.async {
-                                self.results = results.results
+                                self.pokemon = pokemon
                             }
                         } catch {
                             print(error)

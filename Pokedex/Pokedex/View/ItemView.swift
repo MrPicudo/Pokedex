@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemView: View {
     let urlString: String
-    @StateObject private var data = APIPokemonManager()
+    @StateObject private var data = PokemonViewModel()
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -42,7 +42,7 @@ struct ItemView: View {
                                             Image(systemName: "ant.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.green)
+                                                .foregroundStyle(Color.green.opacity(0.7))
                                             Text("Bug")
                                                 .font(.footnote)
                                         }
@@ -52,7 +52,7 @@ struct ItemView: View {
                                             Image(systemName: "moon.stars.circle.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.gray)
+                                                .foregroundStyle(Color.black.opacity(0.7))
                                             Text("Dark")
                                                 .font(.footnote)
                                         }
@@ -62,7 +62,7 @@ struct ItemView: View {
                                             Image(systemName: "tortoise.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.purple)
+                                                .foregroundStyle(Color.purple.opacity(0.7))
                                             Text("Dragon")
                                                 .font(.footnote)
                                         }
@@ -112,7 +112,7 @@ struct ItemView: View {
                                             Image(systemName: "wind.circle.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.blue)
+                                                .foregroundStyle(Color.teal)
                                             Text("Flying")
                                                 .font(.footnote)
                                         }
@@ -122,7 +122,7 @@ struct ItemView: View {
                                             Image(systemName: "theatermasks.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.purple)
+                                                .foregroundStyle(Color.indigo)
                                             Text("Ghost")
                                                 .font(.footnote)
                                         }
@@ -142,7 +142,7 @@ struct ItemView: View {
                                             Image(systemName: "globe.americas.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.brown)
+                                                .foregroundStyle(Color.brown.opacity(0.5))
                                             Text("Ground")
                                                 .font(.footnote)
                                         }
@@ -162,7 +162,7 @@ struct ItemView: View {
                                             Image(systemName: "circle.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.black)
+                                                .foregroundStyle(Color.white)
                                             Text("Normal")
                                                 .font(.footnote)
                                         }
@@ -192,7 +192,7 @@ struct ItemView: View {
                                             Image(systemName: "stop.fill")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
-                                                .foregroundStyle(Color.brown)
+                                                .foregroundStyle(Color.orange.opacity(0.7))
                                             Text("Rock")
                                                 .font(.footnote)
                                         }

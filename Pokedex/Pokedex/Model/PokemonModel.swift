@@ -1,5 +1,5 @@
 //
-//  PokemonData.swift
+//  PokemonModel.swift
 //  Pokedex
 //
 //  Created by Jose Miguel Torres Chavez Nava on 07/08/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 // El protocolo Codable se utiliza para poder codificarse en un JSON o decodificarse a partir de uno.
-struct PokemonData: Codable {
+struct PokemonModel: Codable {
     var id = UUID()
     var abilities: [Ability]
     var moves: [Moves]
@@ -31,7 +31,7 @@ struct PokemonData: Codable {
             abilities: [Ability] = [],
             moves: [Moves] = [],
             name: String = "",
-            sprites: Sprites = Sprites(frontDefault: ""),
+            sprites: Sprites = Sprites(frontDefault: "", backDefault: ""),
             stats: [Stats] = [],
             types: [Types] = []
         ) {
@@ -86,9 +86,11 @@ struct MoveDetail: Codable, Identifiable {
 
 struct Sprites: Codable {
     var frontDefault: String
+    var backDefault: String
     
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"
+        case backDefault = "back_default"
     }
 }
 
