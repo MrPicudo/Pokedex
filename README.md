@@ -11,6 +11,7 @@
   - Explorar sus **estadísticas básicas** como puntos de vida (HP), ataque, defensa, velocidad, y más.
 - **Experiencia 3D Interactiva**: ¡Gira la carta del Pokémon en 3D para verlo desde diferentes ángulos, tanto por delante como por detrás!
 - **Varios lenguajes**: La aplicación soporta los lenguajes español, inglés e italiano. 🇲🇽 🇺🇸 🇮🇹 🍕
+- **Modo claro y oscuro**: Puedes usar la aplicación en el modo que prefieras, para no lastimar tus ojos por la noche, o poder ver bien todos los detalles durante el día. 🌞 🌖
 
 ## 🌟 Descubre y Aprende
 
