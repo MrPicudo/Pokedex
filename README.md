@@ -1,6 +1,6 @@
 # 📱 Pokedex - Tu enciclopedia Pokémon en iOS
 
-¡Bienvenido a **Pokedex**, tu guía definitiva sobre los Pokémon originales! Con esta aplicación podrás explorar una extensa base de datos que contiene información detallada sobre tus Pokémon favoritos. 
+¡Bienvenido a **Pokedex**, tu guía definitiva sobre los Pokémon originales! Con esta aplicación podrás explorar una extensa base de datos (obtenida de https://pokeapi.co/) que contiene información detallada sobre tus Pokémon favoritos. 
 
 ## 🚀 Características Principales
 
