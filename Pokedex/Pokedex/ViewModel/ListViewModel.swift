@@ -15,7 +15,7 @@ class ListViewModel: ObservableObject {
     @Published var results = [Results]()
     
     // Definimos la URL base con la que consultaremos la API
-    private let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+    private let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0"
     
     /// Esta función toma el nombre del pokemon como parámetro y prepara la URL necesaria para hacer la llamada a la API
     func fetchData() {

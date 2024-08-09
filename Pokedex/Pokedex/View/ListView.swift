@@ -31,7 +31,7 @@ struct ListView: View {
                         }
                     }
                 }
-                .background(colorScheme == .dark ? .red.opacity(0.4) : .red.opacity(0.9)) // Este es el que funciona
+                .background(colorScheme == .dark ? .gray.opacity(0.2) : .gray.opacity(0.5)) // Este es el que funciona
             }
             .navigationTitle("Pokedex")
             .onAppear {
