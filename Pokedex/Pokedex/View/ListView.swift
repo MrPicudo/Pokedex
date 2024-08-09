@@ -21,10 +21,7 @@ struct ListView: View {
                 NavigationLink {
                     PokemonView(urlString: pokemon.url)
                 } label: {
-                    HStack {
-                        Text(pokemon.name.prefix(1).uppercased() + pokemon.name.dropFirst())
-                        Image(systemName: "globe")
-                    }
+                    ItemView(urlString: pokemon.url)
                 }
             }
         }

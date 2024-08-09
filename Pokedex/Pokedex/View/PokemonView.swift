@@ -23,7 +23,7 @@ struct PokemonView: View {
             AsyncImage(url: URL(string: urlImage)) { image in
                 image
                     .resizable()
-                    .frame(width: 250)
+                    .frame(width: 250, height: 250)
             } placeholder: {
                 ProgressView()
             }
@@ -69,5 +69,5 @@ struct PokemonView: View {
 }
 
 #Preview {
-    PokemonView(urlString: "")
+    PokemonView(urlString: "https://pokeapi.co/api/v2/pokemon/1/")
 }
