@@ -15,20 +15,31 @@ struct ListView: View {
     // Variable para el cuadro de búsqueda
     @State private var searchText: String = ""
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
-        NavigationStack {
-            List(searchResults) { pokemon in
-                NavigationLink {
-                    PokemonView(urlString: pokemon.url)
-                } label: {
-                    ItemView(urlString: pokemon.url)
+        ZStack(alignment: .top) {
+            NavigationStack {
+                ScrollView {
+                    ForEach(searchResults) { pokemon in
+                        NavigationLink {
+                            PokemonView(urlString: pokemon.url)
+                        } label: {
+                            ItemView(urlString: pokemon.url)
+                                .foregroundColor(Color.primary)
+                                .padding(.horizontal)
+                        }
+                    }
                 }
+                .background(colorScheme == .dark ? .red.opacity(0.4) : .red.opacity(0.9)) // Este es el que funciona
             }
+            .navigationTitle("Pokedex")
+            .onAppear {
+                self.apiListManager.fetchData()
+            }
+            .searchable(text: $searchText)
+            
         }
-        .onAppear {
-            self.apiListManager.fetchData()
-        }
-        .searchable(text: $searchText)
     }
     
     var searchResults: [Results] {

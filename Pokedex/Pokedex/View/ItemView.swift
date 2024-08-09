@@ -11,6 +11,8 @@ struct ItemView: View {
     let urlString: String
     @StateObject private var data = APIPokemonManager()
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         Group {
             if  data.pokemon.name != "" {
@@ -232,7 +234,10 @@ struct ItemView: View {
                     Spacer()
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .background(.gray, in: RoundedRectangle(cornerRadius: 25))
+                .background(RoundedRectangle(cornerRadius: 15)
+                    .stroke(colorScheme == .dark ? .black.opacity(0.9) : .white.opacity(0.9), lineWidth: 4.0))
+                .background(colorScheme == .dark ? .black.opacity(0.3) : .white.opacity(0.3))
+                .clipShape(RoundedRectangle(cornerRadius: 15.0))
             } else {
                 ProgressView() // Señal de que está cargando los datos
             }
