@@ -32,8 +32,8 @@ struct ListView: View {
                     }
                 }
                 .background(colorScheme == .dark ? .gray.opacity(0.2) : .gray.opacity(0.5)) // Este es el que funciona
+                .navigationTitle("Pokedex Asteci")
             }
-            .navigationTitle("Pokedex")
             .onAppear {
                 self.apiListManager.fetchData()
             }

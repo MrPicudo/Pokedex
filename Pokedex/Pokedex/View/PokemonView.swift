@@ -280,8 +280,8 @@ struct PokemonView: View {
                         }
                     }
                     
-                    // Lista de estadísticas (corta)
-                    Text("Estadísticas")
+                    // Lista de estadísticas
+                    Text("Statistics")
                         .font(.title2)
                         .fontWeight(.bold)
                         .padding(.top)
