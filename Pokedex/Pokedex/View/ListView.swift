@@ -11,30 +11,34 @@ import Combine // Necesario para el uso de variables observables, sin embargo, S
 struct ListView: View {
     
     // Creamos un objeto que transmitirá toda la información recibida de la API.
-    @ObservedObject var apiListManager = APIListManager()
+    @StateObject var apiListManager = APIListManager()
+    // Variable para el cuadro de búsqueda
+    @State private var searchText: String = ""
     
     var body: some View {
         NavigationStack {
-            List(apiListManager.results) { pokemon in
-                HStack {
-                    Text(pokemon.name)
-                    NavigationLink {
-                        PokemonView(urlString: pokemon.url)
-                    } label: {
-                        Text("")
-                    }
-                }
-            }
-            VStack {
-                Button {
-                    print(apiListManager.results)
+            List(searchResults) { pokemon in
+                NavigationLink {
+                    PokemonView(urlString: pokemon.url)
                 } label: {
-                    Text("Ver lista de Pokemons")
+                    HStack {
+                        Text(pokemon.name.prefix(1).uppercased() + pokemon.name.dropFirst())
+                        Image(systemName: "globe")
+                    }
                 }
             }
         }
         .onAppear {
             self.apiListManager.fetchData()
+        }
+        .searchable(text: $searchText)
+    }
+    
+    var searchResults: [Results] {
+        if searchText.isEmpty {
+            return apiListManager.results
+        } else {
+            return apiListManager.results.filter { $0.name.contains(searchText.lowercased()) }
         }
     }
 }
